@@ -1,6 +1,12 @@
 const CACHE_NAME = 'seraph-cache';
 const OFFLINE_URLS = [
-    '/offline.html',
+    'offline.html',
+    './',
+    'storage/css/themes.css',
+    'storage/css/index.css',
+    'storage/js/cloak.js',
+    'storage/js/theme.js',
+    'storage/js/cookie.js'
 ];
 
 self.addEventListener('install', function(event) {
@@ -24,7 +30,7 @@ self.addEventListener('fetch', function(event) {
                     return response;
                 }
                 if (event.request.mode === 'navigate') {
-                    return caches.match('./offline.html');
+                    return caches.match('offline.html');
                 }
             });
         })
@@ -46,5 +52,3 @@ self.addEventListener('activate', function(event) {
         })
     );
 });
-
-
