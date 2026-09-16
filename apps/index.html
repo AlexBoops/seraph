@@ -12,7 +12,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="../images/ico.ico" type="image/x-icon">
-        <link rel="stylesheet" href="/storage/css/apps.css">
+        <link rel="stylesheet" href="../storage/css/apps.css">
         <title>Apps | Seraph</title>
 
         <meta name="description" content="an open source games site hosting 500+ games, useful utilities, powerful settings + a clean user interface">
@@ -24,12 +24,13 @@
         <script>
             if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/offline-worker.js').then(function(registration) {
-                    console.log('service worker initalised! scope:', registration.scope);
+                navigator.serviceWorker.register('../offline-worker.js').then(function(registration) {
+                    console.log('service worker initialized! scope:', registration.scope);
         
                     navigator.serviceWorker.addEventListener('message', function(event) {
                         if (event.data === 'cached') {
-                            document.getElementById('cache-status').style.display = 'block';
+                            const cacheStatus = document.getElementById('cache-status');
+                            if (cacheStatus) cacheStatus.style.display = 'block';
                         }
                     });
                 }, function(error) {
@@ -43,7 +44,7 @@
     <body>
         <h1>apps</h1>
         <input type="text" id="search" placeholder="⌕ search" autocomplete="off">
-        <p class="linkp"><a href="/index.html">homepage</a> •  <a href="https://github.com/a456pur/seraph" target="_blank">github</a> •  <a href="https://discord.gg/ZyZDmx3zuQ" target="_blank">discord</a> •  <a id="openBlankLink">open blank</a></p>
+        <p class="linkp"><a href="../index.html">homepage</a> •  <a href="https://github.com/a456pur/seraph" target="_blank">github</a> •  <a href="https://discord.gg/ZyZDmx3zuQ" target="_blank">discord</a> •  <a id="openBlankLink">open blank</a></p>
 
         <div class="button-container">
             <a target="_blank" href="ruffle/index.html">
@@ -51,7 +52,7 @@
                     <h2>ruffle</h2>
                     <p>emulate thousands of flash games with ruffle! upload a file here and run it directly inside seraph</p>
                 </div>
-            </a>   
+            </a>    
 
             <a target="_blank" href="emulatorjs/index.html">
                 <div class="button" style="background-image: url('../images/thumbnails/emulatorjs.jpg');">
@@ -160,12 +161,10 @@
         </div>
 
         <p> // all apps hosted on this website are complete copyright & property of their respective owners \\</p>
-
         
-        
-        <script src="/storage/js/cloak.js"></script>
-        <script src="/storage/js/theme.js"></script>
-        <script src="/storage/js/cookie.js"></script>
-        <script src="/storage/js/apps.js"></script>
+        <script src="../storage/js/cloak.js"></script>
+        <script src="../storage/js/theme.js"></script>
+        <script src="../storage/js/cookie.js"></script>
+        <script src="../storage/js/apps.js"></script>
     </body>
 </html>
